@@ -1,0 +1,5 @@
+cmake
+dlib
+face recognition
+# a dlib wheel required as per python version if not able to install dlib
+# install cmake set on your system

@@ -1,0 +1,5 @@
+Use case 
+1. if we have a some criminal in our data base it so we insert the photo if we have the photo of that person in our database it gives the details of that person 
+2. if we got some decesed body and we have that person in our database it give the details of that person
+3. if we have some recording and we have to check whether a person passes through in the vedio or not.
+4. if we have have some camera or webcam  so if any person whose has already in our database can be identify with their criminal and personal records if any.

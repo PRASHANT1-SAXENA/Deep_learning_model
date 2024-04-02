@@ -1,0 +1,13 @@
+train: C:\Users\chemi\Desktop\enviroments\myml\1-Notebooks_python\All Scripts\Deep_learning_model\object-detection&segmentation\traffic_deduction\vehicle_objects_deduction.v1i.yolov8\train\images
+val: C:\Users\chemi\Desktop\enviroments\myml\1-Notebooks_python\All Scripts\Deep_learning_model\object-detection&segmentation\traffic_deduction\vehicle_objects_deduction.v1i.yolov8\valid\images
+test: C:\Users\chemi\Desktop\enviroments\myml\1-Notebooks_python\All Scripts\Deep_learning_model\object-detection&segmentation\traffic_deduction\vehicle_objects_deduction.v1i.yolov8\test\images
+
+nc: 8
+names: ['ambulance', 'auto', 'bike', 'bus', 'car', 'person', 'scotor', 'truck']
+
+roboflow:
+  workspace: trafficdeduction
+  project: vehicle_objects_deduction
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/trafficdeduction/vehicle_objects_deduction/dataset/1

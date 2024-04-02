@@ -1,0 +1,2 @@
+pip install Caer 
+pip install canaro # if you have GPU in your system

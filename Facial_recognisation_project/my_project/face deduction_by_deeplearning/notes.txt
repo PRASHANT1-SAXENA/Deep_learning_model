@@ -1,0 +1,58 @@
+best for criminal deduction
+# from sklearn.ensemble import AdaBoostClassifier
+
+# Train a classifier for local features
+local_classifier = AdaBoostClassifier(n_estimators=50)
+local_classifier.fit(local_features_train, labels_train)
+
+# Train a classifier for holistic features
+holistic_classifier = AdaBoostClassifier(n_estimators=50)
+holistic_classifier.fit(holistic_features_train, labels_train)
+
+combination of harcascade and adaboost classifier for hybrid 
+
+import cv2 as cv
+import sys
+
+# Load the trained Haar Cascade classifier for initial face detection
+haar_cascade = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
+
+# Load your trained AdaBoost classifiers for local and holistic features
+local_classifier = ...  # Load your trained local features classifier
+holistic_classifier = ...  # Load your trained holistic features classifier
+
+video = cv.VideoCapture(0)
+
+while True:
+    isTrue, frame = video.read()
+    
+    if not isTrue:
+        sys.exit("Failed to capture video frame")
+    
+    greyscale = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)
+    
+    # Use the Haar Cascade classifier for initial face detection
+    face_rect = haar_cascade.detectMultiScale(greyscale, scaleFactor=1.1, minNeighbors=5)
+    
+    for x, y, w, h in face_rect:
+        # Extract the detected face region
+        detected_face = greyscale[y:y+h, x:x+w]
+        
+        # Apply your local and holistic feature classifiers to the detected face
+        local_prediction = local_classifier.predict([detected_face.ravel()])  # Use your local classifier here
+        holistic_prediction = holistic_classifier.predict([detected_face.ravel()])  # Use your holistic classifier here
+        
+        # Depending on the predictions, you can take further actions
+        if local_prediction == 1 and holistic_prediction == 1:
+            # Both local and holistic classifiers detect a face
+            cv.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 4)
+        else:
+            # Face not detected by both classifiers
+            cv.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 4)
+    
+    cv.imshow("video", frame)
+    
+    k = cv.waitKey(1)
+    if k == ord("d"):
+        cv.imwrite("mysave_1.jpg", frame)
+        sys.exit('You forcefully closed the window')

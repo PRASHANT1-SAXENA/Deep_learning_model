@@ -1,0 +1,4 @@
+Deep_learning_model/object-detection&segmentation/traffic_deduction/yolov8x-seg.pt 
+OCR_Hugging_face/node_modules/@xenova/transformers/.cache/Xenova/trocr-base-handwritten/onnx/encoder_model_quantized.onnx
+OCR_Hugging_face/node_modules/@xenova/transformers/.cache/Xenova/trocr-base-handwritten/onnx/decoder_model_merged_quantized.onnx
+object-detection&segmentation/traffic_deduction/yolov8x-seg.pt
